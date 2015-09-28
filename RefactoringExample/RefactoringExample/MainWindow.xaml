@@ -14,17 +14,16 @@
 
         <ListBox Name="ListBox" SelectionChanged="ListBox_OnSelectionChanged" />
         
-
         <UniformGrid Columns="2" Grid.Column="1" Height="150">
             <Label Content="First Name" Margin="4"/>
-            <TextBox Name="FirstNameTextBox" Margin="4"/>
+            <TextBox Name="FirstNameTextBox" Margin="4" AutomationProperties.AutomationId="FirstNameTextBox" />
             <Label Content="Last Name" Margin="4"/>
-            <TextBox Name="LastNameTextBox" Margin="4"/>
+            <TextBox Name="LastNameTextBox" Margin="4" AutomationProperties.AutomationId="LastNameTextBox"/>
             <Label Content="Birthdate" Margin="4"/>
-            <TextBox Name="BirthDateTextBox" Margin="4" />
+            <TextBox Name="BirthDateTextBox" Margin="4" AutomationProperties.AutomationId="BirthDateTextBox"/>
 
             <TextBlock />
-            <Button Click="ButtonBase_OnClick"> Save</Button>
+            <Button Click="ButtonBase_OnClick" AutomationProperties.AutomationId="SaveButton"> Save</Button>
 
         </UniformGrid>
          
