@@ -59,7 +59,15 @@ namespace RefactoringExample
 
             using (var context = new PersonContext())
             {
-                context.Persons.AddOrUpdate(person);
+                if (person.Id != null)
+                {
+                    context.Persons.Attach(person);
+                }
+                else
+                {
+                    context.Persons.Add(person);
+                }
+
                 context.SaveChanges();
             }
         }
