@@ -1,21 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace RefactoringExample
 {
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
 
     /// <summary>
@@ -74,33 +62,6 @@ namespace RefactoringExample
                 context.Persons.AddOrUpdate(person);
                 context.SaveChanges();
             }
-        }
-    }
-
-    public class PersonContext : DbContext
-    {
-        public DbSet<Person> Persons { get; set; }
-    }
-
-    public class Person
-    {
-        public int Id { get; set; }
-
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
-
-        public string BirthDate { get; set; }
-
-        /// <summary>
-        /// Returns a string that represents the current object.
-        /// </summary>
-        /// <returns>
-        /// A string that represents the current object.
-        /// </returns>
-        public override string ToString()
-        {
-            return this.FirstName + " " + this.LastName;
         }
     }
 }
