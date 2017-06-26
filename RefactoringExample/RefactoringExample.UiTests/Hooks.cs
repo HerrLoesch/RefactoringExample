@@ -8,22 +8,7 @@ namespace RefactoringExample.UiTests
         [BeforeScenario]
         public void BeforeScenario()
         {
-            CreateDataBase();
-
             StartApplication();
-        }
-
-        private static void CreateDataBase()
-        {
-            using (var context = new PersonContext())
-            {
-                if (context.Database.Exists())
-                {
-                    context.Database.Delete();
-                }
-
-                context.Database.Create();
-            }
         }
 
         private static void StartApplication()

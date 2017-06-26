@@ -80,7 +80,6 @@
   <ItemGroup>
     <Compile Include="Person.cs" />
     <Compile Include="PersonComparer.cs" />
-    <Compile Include="PersonContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

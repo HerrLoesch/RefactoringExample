@@ -1,6 +1,9 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xml.Serialization;
 
 namespace RefactoringExample
 {
@@ -11,20 +14,33 @@ namespace RefactoringExample
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<Person> persons = new List<Person>();
+
         public MainWindow()
         {
             InitializeComponent();
 
-            using (var context = new PersonContext())
+            this.ReadPersons();
+        }
+
+        private void ReadPersons()
+        {
+            if (File.Exists("persondata.xml"))
             {
-                var dbSet = context.Persons.ToList();
-                foreach (var person in dbSet)
-                {
-                    this.ListBox.Items.Add(person);
-                }
+                var xmlSerializer = new XmlSerializer(this.persons.GetType());
+
+                this.persons = (List<Person>) xmlSerializer.Deserialize(File.OpenRead("persondata.xml"));
             }
         }
-        
+
+        private void SavePersons()
+        {
+            var file = File.Create("persondata.xml");
+            var serializer = new XmlSerializer(this.persons.GetType());
+
+            serializer.Serialize(file, this.persons);
+        }
+
         private void ListBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var person = this.ListBox.SelectedItem as Person;
@@ -49,26 +65,15 @@ namespace RefactoringExample
                     };
 
                 this.ListBox.Items.Add(person);
+                this.persons.Add(person);
             }
             else
             {
+                person = this.persons.Single(x => x.FirstName == person.FirstName);
+
                 person.FirstName = this.FirstNameTextBox.Text;
                 person.LastName = this.LastNameTextBox.Text;
                 person.BirthDate = this.BirthDateTextBox.Text;
-            }
-
-            using (var context = new PersonContext())
-            {
-                if (person.Id != null)
-                {
-                    context.Persons.Attach(person);
-                }
-                else
-                {
-                    context.Persons.Add(person);
-                }
-
-                context.SaveChanges();
             }
         }
     }
