@@ -232,8 +232,7 @@ namespace RefactoringExample.UiTests
         /// <summary>
         /// Launch '%USERPROFILE%\Documents\GitHub\RefactoringExample\RefactoringExample\RefactoringExample\bin\Debug\RefactoringExample.exe'
         /// </summary>
-        public string ExePath = "C:\\Users\\hendrik.loesch\\Documents\\GitHub\\RefactoringExample\\RefactoringExample\\Re" +
-            "factoringExample\\bin\\Debug\\RefactoringExample.exe";
+        public string ExePath = @"C:\Users\hendrik.loesch\RefactoringExample\RefactoringExample\RefactoringExample\bin\Debug\RefactoringExample.exe";
         
         /// <summary>
         /// Launch '%USERPROFILE%\Documents\GitHub\RefactoringExample\RefactoringExample\RefactoringExample\bin\Debug\RefactoringExample.exe'

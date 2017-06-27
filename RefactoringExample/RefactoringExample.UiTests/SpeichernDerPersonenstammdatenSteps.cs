@@ -35,17 +35,5 @@ namespace RefactoringExample.UiTests
             var uiMap = ScenarioContext.Current.Get<UIMap>();
             Assert.IsTrue(uiMap.ListContains(name));
         }
-
-        [Then(@"ein (.*) (.*), geboren am (.*) soll in der Datenbank gespeichert sein\.")]
-        public void DannEinHansPeterGeborenAm_SollInDerDatenbankGespeichertSein_(string firstName, string lastName, string birthdate)
-        {
-            using (var context = new PersonContext())
-            {
-                var found = context.Persons.Any(x => x.FirstName == firstName && x.LastName == lastName && x.BirthDate == birthdate);
-
-                Assert.IsTrue(found, "Person was not found in database.");
-            }
-        }
-
     }
 }

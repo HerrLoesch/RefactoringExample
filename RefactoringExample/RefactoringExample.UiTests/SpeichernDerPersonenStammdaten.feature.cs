@@ -83,8 +83,6 @@ testRunner.Given("ich gebe die Daten für Hans Peter, geboren am 24.12.1979 ein"
 testRunner.When("ich auf Speichern klicke", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Wenn ");
 #line 7
 testRunner.Then("soll ein Hans Peter in der Personen Auswahlliste zu sehen sein", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dann ");
-#line 8
-testRunner.And("ein Hans Peter, geboren am 24.12.1979 soll in der Datenbank gespeichert sein.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Und ");
 #line hidden
             this.ScenarioCleanup();
         }
