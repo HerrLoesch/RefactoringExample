@@ -13,7 +13,7 @@ namespace RefactoringExample
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, IDisposable
+    public partial class MainWindow : Window
     {
         private List<Person> persons = new List<Person>();
 
@@ -76,10 +76,7 @@ namespace RefactoringExample
                 person.LastName = this.LastNameTextBox.Text;
                 person.BirthDate = this.BirthDateTextBox.Text;
             }
-        }
 
-        public void Dispose()
-        {
             this.SavePersons();
         }
     }
